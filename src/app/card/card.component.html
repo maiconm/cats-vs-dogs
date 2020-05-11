@@ -3,4 +3,6 @@
   [src]="imageUrl"
   alt="Dog"
 >
-<span *ngIf="likeFlag">💖</span>
+<span [@likeDislike]="animationTrigger">
+  <em class="fas fa-heart"></em>
+</span>
