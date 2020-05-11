@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -21,7 +21,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  public imageUrl = '../../assets/dog-profile.jpg';
+  @Input()
+  public imageUrl: string;
   public likeFlag = false;
 
   public like(): void {
