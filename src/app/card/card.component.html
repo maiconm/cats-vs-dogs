@@ -1,2 +1,6 @@
-<img src="../../assets/dog-profile.jpg" alt="Dog">
-<span>💖</span>
+<img
+  (click)="like()"
+  [src]="imageUrl"
+  alt="Dog"
+>
+<span *ngIf="likeFlag">💖</span>
