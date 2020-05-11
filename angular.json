@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cats-vs-dogs"
+    }
+  },
+  "defaultProject": "cats-vs-dogs",
+  "cli": {
+    "analytics": "1b432a3e-53cb-4382-a7d4-29b6b24328cb"
+  }
 }
