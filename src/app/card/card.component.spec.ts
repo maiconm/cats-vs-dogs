@@ -46,4 +46,20 @@ describe('CardComponent', () => {
     component.like();
     expect(component.animationTrigger).toBe('showing');
   });
+
+  it('canLike should be true when component is created', () => {
+    expect(component.canLike).toBeTrue();
+  });
+
+  it('whenever canLike is false, likeFlag should be false after calling like()', () => {
+    component.canLike = false;
+    component.like();
+    expect(component.likeFlag).toBeFalse();
+  });
+
+  it('whenever canLike is false, animatoinTrigger should return notShowing after calling like()', () => {
+    component.canLike = false;
+    component.like();
+    expect(component.animationTrigger).toBe('notShowing');
+  });
 });
