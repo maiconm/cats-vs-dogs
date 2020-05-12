@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -25,14 +25,18 @@ export class CardComponent {
   public imageUrl: string;
   @Input()
   public canLike = true;
+  @Output()
+  public liked = new EventEmitter<boolean>();
   public likeFlag = false;
 
   public like(): void {
-    this.likeFlag = !!this.canLike;
+    if (this.canLike) {
+      this.likeFlag = true;
+      this.liked.emit(true);
+    }
   }
 
   public get animationTrigger(): string {
     return this.likeFlag ? 'showing' : 'notShowing';
   }
-
 }

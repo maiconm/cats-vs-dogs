@@ -62,4 +62,11 @@ describe('CardComponent', () => {
     component.like();
     expect(component.animationTrigger).toBe('notShowing');
   });
+
+  it('whenever canLike is true and call like(), liked should emmit a value', () => {
+    spyOn(component.liked, 'emit');
+    component.like();
+    fixture.detectChanges();
+    expect(component.liked.emit).toHaveBeenCalledWith(true);
+  });
 });
