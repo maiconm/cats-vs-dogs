@@ -23,10 +23,12 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CardComponent {
   @Input()
   public imageUrl: string;
+  @Input()
+  public canLike = true;
   public likeFlag = false;
 
   public like(): void {
-    this.likeFlag = true;
+    this.likeFlag = !!this.canLike;
   }
 
   public get animationTrigger(): string {
