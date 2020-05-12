@@ -1,8 +1,13 @@
-<img
-  (click)="like()"
-  [src]="imageUrl"
-  alt="Dog"
->
-<span [@likeDislike]="animationTrigger">
-  <em class="fas fa-heart"></em>
-</span>
+<div>
+  <img
+    (click)="like()"
+    [src]="imageUrl"
+    alt="Dog"
+  >
+  <span
+    (click)="like()"
+    [@likeDislike]="animationTrigger"
+  >
+    <em class="fas fa-heart"></em>
+  </span>
+</div>
