@@ -4,15 +4,22 @@
   display: grid;
   text-align: center;
   grid-template-areas:
-    "header"
-    "card"
-    "footer";
+    ". header ."
+    ". card ."
+    ". footer .";
 }
 
 h1 { grid-area: header; }
+
 .cards {
   grid-area: card;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  place-items: center;
 }
+
+cvd-card {
+  margin: 3px;
+}
+
 footer { grid-area: footer; }
