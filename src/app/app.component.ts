@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public image = '../../assets/dog-profile.jpg';
+  public image2 = '../../assets/cat-profile.jpg';
+  public canLike = true;
+
+  public likeHandler(): void {
+    this.canLike = false;
+  }
 }

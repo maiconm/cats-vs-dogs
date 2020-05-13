@@ -1,8 +1,16 @@
 <div class="container">
   <h1>Vote</h1>
   <div class="cards">
-    <cvd-card [imageUrl]="image"></cvd-card>
-    <cvd-card [imageUrl]="image"></cvd-card>
+    <cvd-card
+      [imageUrl]="image2"
+      [canLike]="canLike"
+      (liked)="likeHandler()"
+    ></cvd-card>
+    <cvd-card
+      [imageUrl]="image"
+      [canLike]="canLike"
+      (liked)="likeHandler()"
+    ></cvd-card>
   </div>
   <footer>test</footer>
 </div>
