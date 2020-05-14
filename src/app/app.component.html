@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Which do you like most?</h1>
-  <div class="cards">
+  <div class="cards" *ngIf="cat && dog">
     <cvd-card
-      [imageUrl]="image2"
+      [imageUrl]="cat.file"
       [canLike]="canLike"
       (liked)="likeHandler()"
     ></cvd-card>
     <cvd-card
-      [imageUrl]="image"
+      [imageUrl]="dog.url"
       [canLike]="canLike"
       (liked)="likeHandler()"
     ></cvd-card>
