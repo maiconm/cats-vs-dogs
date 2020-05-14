@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   animations: [
@@ -12,6 +14,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         opacity: 1,
         fontSize: 150,      })),
       transition('notShowing => showing', [
+        animate('.25s')
+      ]),
+      transition('showing => notShowing', [
         animate('.25s')
       ])
     ])
@@ -33,10 +38,16 @@ export class CardComponent {
     if (this.canLike) {
       this.likeFlag = true;
       this.liked.emit(true);
+      this.removeLikeFlag();
     }
   }
 
   public get animationTrigger(): string {
     return this.likeFlag ? 'showing' : 'notShowing';
+  }
+
+  private removeLikeFlag(): void {
+    timer(250).pipe(take(1))
+      .subscribe(() => this.likeFlag = false);
   }
 }
