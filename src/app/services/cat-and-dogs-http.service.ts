@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
-import { map, retry, retryWhen, tap } from 'rxjs/operators';
+import { map, retryWhen, tap } from 'rxjs/operators';
 import { Dog } from '../interfaces/dog';
 import { Cat } from '../interfaces/cat';
 
@@ -28,7 +28,7 @@ export class CatAndDogsHttpService {
   }
 
   private handleDogResponse(dog: Dog): Dog {
-    if (!dog.url.endsWith('.mp4')) {
+    if (!dog.url.endsWith('.mp4') && !dog.url.endsWith('.webm')) {
       return dog;
     }
     throw new Error('.mp4 file not supported');
